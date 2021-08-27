@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-fis^qy-8^9bx-%cgh!b%v%=#53*9f=ms68&oqv0kclt&5)za=p
 DEBUG = True
 
 # Configurar os indereços de acesso permitidos 
-ALLOWED_HOSTS = ['127.0.0.1','https://apimatricula.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1','apimodulo1.herokuapp.com']
 
 
 # Application definition
