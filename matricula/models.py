@@ -1,5 +1,5 @@
-from apimodulo1.estudante.models import Estudante
-from apimodulo1.parametro.models import Classe
+from estudante.models import Estudante
+from parametro.models import Classe
 from django.db import models
 
 # Create your models here.

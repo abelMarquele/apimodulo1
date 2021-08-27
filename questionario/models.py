@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Pergunta(models.Model):
-    codigo_pergunta  = models.CharField(verbose_name=('código'),
+    codigoPergunta  = models.CharField(verbose_name=('código da Pergunta'),
                             max_length=30,
                             default='',
                             blank=True)
@@ -13,34 +13,23 @@ class Pergunta(models.Model):
                             blank=True)
 
     class Meta:
-        ordering = ('codigo',)
+        ordering = ('codigoPergunta',)
     
     def __str__(self):
-        return self.codigo
+        return self.codigoPergunta
 
 
 class Quintil_Riqueza(models.Model):
-    codigo_pergunta = models.ForeignKey(Pergunta, related_name="codigoPergunta", on_delete=models.CASCADE)
+    codigoPergunta = models.ForeignKey(Pergunta, related_name="riquezaCodigoPergunta", on_delete=models.CASCADE)
     resposta = models.CharField(verbose_name=('Resposta'),
                             max_length=10,
                             default='',
                             blank=True)
 
-    class Meta:
-        ordering = ('codigo_pergunta',)
-    
-    def __str__(self):
-        return self.codigo_pergunta
 
-class historico_saude(models.Model):
-    codigo_pergunta = models.ForeignKey(Pergunta, related_name="codigoPergunta", on_delete=models.CASCADE)
+class historico_Saude(models.Model):
+    codigoPergunta = models.ForeignKey(Pergunta, related_name="saudeCodigoPergunta", on_delete=models.CASCADE)
     resposta = models.CharField(verbose_name=('Resposta'),
                             max_length=10,
                             default='',
                             blank=True)
-
-    class Meta:
-        ordering = ('codigo_pergunta',)
-    
-    def __str__(self):
-        return self.codigo_pergunta
