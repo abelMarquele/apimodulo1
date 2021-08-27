@@ -49,6 +49,9 @@ INSTALLED_APPS = [
 
     # App do modelo
     'estudante',
+    'matricula',
+    'parametro',
+    'questionario'
 
 
 ]

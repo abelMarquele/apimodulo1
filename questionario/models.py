@@ -12,7 +12,6 @@ class Pergunta(models.Model):
                             default='',
                             blank=True)
 
-
     class Meta:
         ordering = ('codigo',)
     
@@ -27,7 +26,6 @@ class Quintil_Riqueza(models.Model):
                             default='',
                             blank=True)
 
-
     class Meta:
         ordering = ('codigo_pergunta',)
     
@@ -40,7 +38,6 @@ class historico_saude(models.Model):
                             max_length=10,
                             default='',
                             blank=True)
-
 
     class Meta:
         ordering = ('codigo_pergunta',)

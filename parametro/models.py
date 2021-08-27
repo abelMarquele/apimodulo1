@@ -6,7 +6,7 @@ class Sala(models.Model):
     nameSala = models.CharField(verbose_name=('Nome da Sala'),
                             blank=True,
                             default='',
-                            max_length=50)
+                            max_length=100)
     capacidade = models.CharField(verbose_name=('Capacidade'),
                             max_length=50,
                             default='',
@@ -45,6 +45,7 @@ class Periodo(models.Model):
     def __str__(self):
         return self.periodo
 
+
 class Classe(models.Model):
     nomeClasse = models.CharField(verbose_name=('Nome da Sala'),
                             max_length=50,
@@ -56,6 +57,7 @@ class Classe(models.Model):
     
     def __str__(self):
         return self.nomeClasse
+
 
 class Turma(models.Model):
     nameTurma = models.CharField(verbose_name=('Nome da Turma'),

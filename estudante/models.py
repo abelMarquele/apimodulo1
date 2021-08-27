@@ -53,18 +53,6 @@ class Telefone(models.Model):
     numero = models.CharField(validators=[tel_regex],
                             blank=True,
                             max_length=16, verbose_name='Nº telefone')  # validators should be a list
-    # estudante = models.ForeignKey(Estudante,
-    #                         on_delete=models.SET_NULL,
-    #                         null=True,
-    #                         blank=True)
-    # encarregado = models.ForeignKey(Encarregado,
-    #                         on_delete=models.SET_NULL,
-    #                         null=True,
-    #                         blank=True)
-    # filiacao = models.ForeignKey(Filiacao,
-    #                         on_delete=models.SET_NULL,
-    #                         null=True,
-    #                         blank=True)
 
     class Meta:
         ordering = ('numero',)
@@ -95,8 +83,8 @@ class Encarregado(models.Model):
                             default='',
                             blank=True)
     
-    telefone = models.ForeignKey(Telefone, related_name="encarregadoTelefones", on_delete=models.CASCADE)
-    endereco = models.ForeignKey(Endereco, related_name="encarregadoEnderecos", on_delete=models.CASCADE)
+    telefone = models.ForeignKey(Telefone, related_name="encarregadoTelefone", on_delete=models.CASCADE)
+    endereco = models.ForeignKey(Endereco, related_name="encarregadoEndereco", on_delete=models.CASCADE)
 
     class Meta:
         ordering = ('nameEncarregado',)
@@ -132,8 +120,8 @@ class Filiacao(models.Model):
                             default='',
                             blank=True)
     
-    telefone = models.ForeignKey(Telefone, related_name="filiacaoTelefones", on_delete=models.CASCADE)
-    endereco = models.ForeignKey(Endereco, related_name="filiacaoEnderecos", on_delete=models.CASCADE)
+    telefone = models.ForeignKey(Telefone, related_name="filiacaoTelefone", on_delete=models.CASCADE)
+    endereco = models.ForeignKey(Endereco, related_name="filiacaoEndereco", on_delete=models.CASCADE)
 
     class Meta:
         ordering = ('namePai',)
@@ -188,10 +176,10 @@ class Estudante(models.Model):
                             blank=True, 
                             null=True)
 
-    telefone = models.ForeignKey(Telefone, related_name="estudanteTelefones", on_delete=models.CASCADE)
-    endereco = models.ForeignKey(Endereco, related_name="estudanteEnderecos", on_delete=models.CASCADE)
-    encarregado = models.ForeignKey(Encarregado, related_name="estudanteEncarregados", on_delete=models.CASCADE)
-    filiacao = models.ForeignKey(Filiacao, related_name="estudanteFiliacoes", on_delete=models.CASCADE)
+    telefone = models.ForeignKey(Telefone, related_name="estudanteTelefone", on_delete=models.CASCADE)
+    endereco = models.ForeignKey(Endereco, related_name="estudanteEndereco", on_delete=models.CASCADE)
+    encarregado = models.ForeignKey(Encarregado, related_name="estudanteEncarregado", on_delete=models.CASCADE)
+    filiacao = models.ForeignKey(Filiacao, related_name="estudanteFiliacoe", on_delete=models.CASCADE)
 
 
     class Meta:
