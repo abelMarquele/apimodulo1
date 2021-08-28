@@ -1,19 +1,19 @@
 from rest_framework import serializers
 from .models import Pergunta, Quintil_Riqueza, historico_Saude
 
-class PerguntaSerealizer(serializers.ModelSerializer):
+class PerguntaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pergunta
         fields = '__all__'
    
 
 
-class Quintil_RiquezaSerealizer(serializers.ModelSerializer):
+class Quintil_RiquezaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Quintil_Riqueza
         fields = '__all__'
 
-class historico_SaudeSerealizer(serializers.ModelSerializer):
+class historico_SaudeSerializer(serializers.ModelSerializer):
     class Meta:
         model = historico_Saude
         fields = '__all__'
