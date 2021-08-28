@@ -28,7 +28,7 @@ class EncarregadoSerializer(serializers.ModelSerializer):
 
 
 
-class FiliacaoSerealizer(serializers.ModelSerializer):
+class FiliacaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Filiacao
         fields = '__all__'
@@ -36,7 +36,7 @@ class FiliacaoSerealizer(serializers.ModelSerializer):
 
 
 
-class TelefoneSerealizer(serializers.ModelSerializer):
+class TelefoneSerializer(serializers.ModelSerializer):
     class Meta:
         model = Telefone
         fields = '__all__'

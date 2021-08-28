@@ -25,6 +25,6 @@ class Quintil_RiquezaViewSet(ModelViewSet):
     serializer_class = Quintil_RiquezaSerializer
 
 @decorators.permission_classes((permissions.AllowAny,))
-class historico_SaudeViewSet(ModelViewSet):
+class Historico_SaudeViewSet(ModelViewSet):
     queryset = historico_Saude.objects.all()
     serializer_class = historico_SaudeSerializer
