@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import Estudante, Encarregado, Endereco, Filiacao, Telefone
 
 
-class EstudanteSerealizer(serializers.ModelSerializer):
+class EstudanteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Estudante
         fields = '__all__'
@@ -11,7 +11,7 @@ class EstudanteSerealizer(serializers.ModelSerializer):
 
 
 
-class EnderecoSerealizer(serializers.ModelSerializer):
+class EnderecoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Endereco
         fields = '__all__'
@@ -20,7 +20,7 @@ class EnderecoSerealizer(serializers.ModelSerializer):
 
 
 
-class EncarregadoSerealizer(serializers.ModelSerializer):
+class EncarregadoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Encarregado
         fields = '__all__'
