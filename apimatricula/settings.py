@@ -34,6 +34,8 @@ ALLOWED_HOSTS = ['127.0.0.1','apimodulo1.herokuapp.com']
 
 
 # Application definition
+AUTH_USER_MODEL = 'accounts.MyUser'
+AUTH_EMAIL_VERIFICATION = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -46,15 +48,15 @@ INSTALLED_APPS = [
     # Aplicações/bibliotecas que instalei
     'rest_framework',
     'rest_framework.authtoken',
+    'authemail',
+    'accounts',
     'corsheaders',
-    'djoser',
 
     # App do modelo
     'estudante',
     'matricula',
     'parametro',
     'questionario'
-
 
 ]
 
@@ -168,6 +170,10 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
     'DEFAULT_PAGINATION_CLASS':
     'rest_framework.pagination.PageNumberPagination',
+
+     'DEFAULT_AUTHENTICATION_CLASSES' : (
+		 'rest_framework.authentication.TokenAuthentication' ,
+	)
 }
 
 if ENVIRONMENT == 'production':
@@ -182,5 +188,19 @@ if ENVIRONMENT == 'production':
     SECURE_SSL_REDIRECT = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+
+# Email settings
+# https://docs.djangoproject.com/en/3.1/topics/email/
+# https://docs.djangoproject.com/en/3.1/ref/settings/#email-host
+
+EMAIL_FROM = os.environ.get('AUTHEMAIL_DEFAULT_EMAIL_FROM') or '<YOUR DEFAULT_EMAIL_FROM HERE>'
+EMAIL_BCC = os.environ.get('AUTHEMAIL_DEFAULT_EMAIL_BCC') or '<YOUR DEFAULT_EMAIL_BCC HERE>'
+
+EMAIL_HOST = os.environ.get('AUTHEMAIL_EMAIL_HOST') or 'smtp.gmail.com'
+EMAIL_PORT = os.environ.get('AUTHEMAIL_EMAIL_PORT') or 587
+EMAIL_HOST_USER = os.environ.get('AUTHEMAIL_EMAIL_HOST_USER') or '<YOUR EMAIL_HOST_USER HERE>'
+EMAIL_HOST_PASSWORD = os.environ.get('AUTHEMAIL_EMAIL_HOST_PASSWORD') or '<YOUR EMAIL_HOST_PASSWORD HERE>'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 
 django_heroku.settings(locals())
