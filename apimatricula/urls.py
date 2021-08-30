@@ -1,6 +1,7 @@
 from django.conf.urls import include
 from django.conf.urls import url
 from django.contrib import admin
+from django.urls.conf import path
 
 # Third party modules
 from rest_framework.schemas import get_schema_view
@@ -61,6 +62,8 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^schema/$', schema_view),
+    path('api/accounts/', include('authemail.urls')),
     url(r'^docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION))
+    
     # url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 ]
