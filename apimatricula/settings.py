@@ -29,6 +29,7 @@ SECRET_KEY = 'django-insecure-fis^qy-8^9bx-%cgh!b%v%=#53*9f=ms68&oqv0kclt&5)za=p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 # Configurar os indereços de acesso permitidos 
 ALLOWED_HOSTS = ['127.0.0.1','apimodulo1.herokuapp.com']
 
@@ -203,4 +204,6 @@ EMAIL_HOST_PASSWORD = os.environ.get('AUTHEMAIL_EMAIL_HOST_PASSWORD') or '<YOUR 
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
+
+# Activate Django-Heroku.
 django_heroku.settings(locals())
