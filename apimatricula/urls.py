@@ -60,10 +60,11 @@ router.register(r'quintil_riqueza', Quintil_RiquezaViewSet)
 # Additionally, we include login URLs for the browseable API.
 urlpatterns = [
     url(r'^', include(router.urls)),
+    path('admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    # url(r'^rest-auth/', include('rest_auth.urls')),
+    # url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
     url(r'^schema/$', schema_view),
-    path('api/accounts/', include('authemail.urls')),
+    url(r'^api/accounts/', include('authemail.urls')),
     url(r'^docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION))
-    
-    # url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 ]

@@ -45,26 +45,26 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # Aplicações/bibliotecas que instalei
     'rest_framework',
     'rest_framework.authtoken',
+    # 'rest_auth',
+    # 'django.contrib.sites',
+    # 'allauth',
+    # 'allauth.account',
+    # 'rest_auth.registration',
     'authemail',
     'accounts',
     'corsheaders',
-
-    # App do modelo
     'estudante',
     'matricula',
     'parametro',
-    'questionario'
-
+    'questionario',
 ]
+
+#SITE_ID = 1
 
 #Endereço da aplicação de front End
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080",
-]
+CORS_ALLOWED_ORIGINS = ['*']
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
@@ -174,7 +174,10 @@ REST_FRAMEWORK = {
 
      'DEFAULT_AUTHENTICATION_CLASSES' : (
 		 'rest_framework.authentication.TokenAuthentication' ,
-	)
+	),
+    # 'DEFAULT_PERMISSION_CLASSES': ( 
+    #     'rest_framework.permissions.IsAdminUser', 
+    # )
 }
 
 if ENVIRONMENT == 'production':

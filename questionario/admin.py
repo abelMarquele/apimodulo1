@@ -6,5 +6,5 @@ from .models import Pergunta, Quintil_Riqueza, historico_Saude
 
 admin.site.register(Pergunta)
 admin.site.register(Quintil_Riqueza)
-admin.site.register( historico_Saude)
+admin.site.register(historico_Saude)
 
